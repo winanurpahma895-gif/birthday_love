@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Favorite Person ♡</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Sacramento&display=swap');
+
+:root {
+  --pink: #f6c6d5;
+  --pink-dark: #dc8da9;
+  --cream: #fffaf1;
+  --brown: #6e5158;
+  --paper: #fffdf8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 15%, #ffe4ec 0, transparent 25%),
+    radial-gradient(circle at 90% 45%, #fce8d9 0, transparent 24%),
+    #fff9f3;
+  color: var(--brown);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: #f6c6d5;
+}
+
+/* BACKGROUND DECORATION */
+
+body::before {
+  content: "✿  ♡  ⋆  🎀  ♡  ✧";
+  position: fixed;
+  top: 12px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 12px;
+  font-size: 17px;
+  opacity: .55;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.sticker {
+  position: absolute;
+  font-size: 35px;
+  animation: float 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.sticker.one { top: 140px; left: 5%; }
+.sticker.two { top: 340px; right: 6%; animation-delay: 1s; }
+.sticker.three { top: 900px; left: 7%; animation-delay: 2s; }
+.sticker.four { top: 1500px; right: 8%; animation-delay: .5s; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-14px) rotate(5deg); }
+}
+
+#floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.heart {
+  position: absolute;
+  bottom: -35px;
+  animation: rise linear forwards;
+  opacity: .7;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+/* OPENING */
+
+.opening {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 18px;
+  text-align: center;
+}
+
+.opening-card {
+  width: min(100%, 560px);
+  padding: 38px 24px;
+  background: rgba(255,255,255,.76);
+  border: 2px dashed #e9a9bd;
+  border-radius: 24px 45px 28px 42px;
+  box-shadow: 9px 10px 0 #f6dbe2;
+  position: relative;
+  animation: appear 1s ease both;
+}
+
+.opening-card::before {
+  content: "🎀";
+  position: absolute;
+  top: -28px;
+  right: 20px;
+  font-size: 48px;
+  transform: rotate(15deg);
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 30px;
+  background: #ffe8ee;
+  color: #b96d88;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.opening h1 {
+  font-family: 'Sacramento', cursive;
+  font-size: clamp(48px, 10vw, 78px);
+  color: #c87594;
+  line-height: 1.2;
+  margin: 18px 0 10px;
+}
+
+.opening p {
+  line-height: 1.8;
+  font-size: 14px;
+  margin: 0 auto 22px;
+  max-width: 390px;
+}
+
+.main-button {
+  border: none;
+  background: linear-gradient(135deg, #edb0c5, #d887a4);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  box-shadow: 0 7px 18px #e8b6c7;
+  transition: .3s;
+}
+
+.main-button:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 24px #df9db5;
+}
+
+/* MAIN CONTENT */
+
+#main-content {
+  display: none;
+  padding-bottom: 100px;
+}
+
+#main-content.visible {
+  display: block;
+  animation: appear 1s ease;
+}
+
+.section {
+  width: min(100% - 32px, 760px);
+  margin: 0 auto;
+  padding: 75px 0;
+}
+
+.section-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #c47d97;
+  text-align: center;
+  margin-bottom: 13px;
+  font-weight: 700;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: clamp(30px, 6vw, 43px);
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: #76545f;
+}
+
+.section-desc {
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto 28px;
+}
+
+/* SCRAPBOOK PHOTO */
+
+.photo-area {
+  max-width: 440px;
+  margin: 35px auto 15px;
+  position: relative;
+  transform: rotate(-2deg);
+  transition: .4s;
+}
+
+.photo-area:hover {
+  transform: rotate(0) scale(1.02);
+}
+
+.photo-frame {
+  padding: 14px 14px 48px;
+  background: white;
+  box-shadow: 0 8px 28px #9f77831c, 5px 6px 0 #f0d9de;
+  border: 1px solid #f1e5e5;
+  position: relative;
+}
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 370px;
+  object-fit: cover;
+  background: #f8e8e9;
+}
+
+.photo-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-family: 'Sacramento', cursive;
+  font-size: 29px;
+  color: #b96d88;
+}
+
+.tape {
+  position: absolute;
+  width: 95px;
+  height: 26px;
+  background: #f4cfdbbb;
+  top: -11px;
+  left: calc(50% - 47px);
+  transform: rotate(-4deg);
+  z-index: 2;
+}
+
+.photo-doodle {
+  position: absolute;
+  font-size: 40px;
+}
+
+.photo-doodle.left {
+  left: -25px;
+  bottom: 25px;
+  transform: rotate(-18deg);
+}
+
+.photo-doodle.right {
+  right: -25px;
+  top: 40px;
+  transform: rotate(15deg);
+}
+
+/* SMALL SCRAPBOOK TAGS */
+
+.tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+
+.tag {
+  background: #fff;
+  border: 1px solid #f1d9df;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  transform: rotate(-2deg);
+  box-shadow: 2px 3px 0 #f3e3e5;
+}
+
+.tag:nth-child(even) {
+  transform: rotate(2deg);
+  background: #fff0f4;
+}
+
+/* LETTER */
+
+.letter-paper {
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      transparent 0px,
+      transparent 32px,
+      #f1e2e1 33px
+    ),
+    #fffefa;
+  padding: 38px 27px;
+  border: 1px solid #efdfd8;
+  border-radius: 4px;
+  box-shadow: 7px 8px 0 #f2dce2;
+}
+
+.letter-paper::before {
+  content: "♡";
+  position: absolute;
+  top: 10px;
+  right: 17px;
+  font-size: 28px;
+  color: #d98da8;
+}
+
+.letter-paper h3 {
+  font-family: 'Sacramento', cursive;
+  font-size: 37px;
+  color: #c87594;
+  margin-bottom: 20px;
+}
+
+.letter-paper p {
+  font-size: 14px;
+  line-height: 2.25;
+  margin-bottom: 18px;
+}
+
+.signature {
+  text-align: right;
+  font-family: 'Sacramento', cursive;
+  font-size: 34px;
+  color: #c87594;
+  margin-top: 25px;
+}
+
+/* TIMER */
+
+.timer-card {
+  background: #fff;
+  border: 2px dashed #e7b5c5;
+  border-radius: 24px;
+  padding: 30px 16px;
+  box-shadow: 5px 6px 0 #f6dce4;
+}
+
+.timer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.time-box {
+  padding: 16px 5px;
+  background: #fff0f4;
+  border-radius: 15px;
+}
+
+.time-box strong {
+  display: block;
+  font-size: clamp(22px, 5vw, 32px);
+  color: #c87594;
+  margin-bottom: 5px;
+}
+
+.time-box span {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* REASONS */
+
+.reason-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.reason {
+  background: white;
+  border-radius: 14px 24px 17px 25px;
+  padding: 22px 16px;
+  border: 1px solid #f1dfe3;
+  box-shadow: 4px 4px 0 #f5e4e8;
+  transition: .3s;
+}
+
+.reason:hover {
+  transform: translateY(-5px) rotate(-1deg);
+}
+
+.reason .emoji {
+  font-size: 29px;
+  margin-bottom: 12px;
+}
+
+.reason h4 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 7px;
+  font-size: 17px;
+}
+
+.reason p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* GIFT */
+
+.gift-card {
+  text-align: center;
+  background: #fff0f4;
+  border-radius: 28px;
+  padding: 34px 20px;
+  border: 2px dashed #e4a8bc;
+}
+
+.gift {
+  font-size: 90px;
+  display: inline-block;
+  animation: float 2s ease-in-out infinite;
+  transition: .3s;
+  background: transparent;
+  border: none;
+}
+
+.gift:hover {
+  transform: scale(1.1);
+}
+
+.secret-message {
+  display: none;
+  margin: 24px auto 0;
+  padding: 23px;
+  background: white;
+  border-radius: 17px;
+  max-width: 440px;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.secret-message.show {
+  display: block;
+  animation: appear .7s ease;
+}
+
+/* FINAL */
+
+.final-card {
+  background: linear-gradient(145deg, #fff0f4, #fffaf1);
+  border: 1px solid #f1d5df;
+  padding: 40px 22px;
+  border-radius: 35px 15px 35px 15px;
+  text-align: center;
+  box-shadow: 7px 8px 0 #f4dce4;
+}
+
+.final-card .big-heart {
+  font-size: 55px;
+  animation: heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.13); }
+}
+
+.final-card p {
+  font-size: 14px;
+  line-height: 2;
+  margin: 18px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  color: #b17d8f;
+  font-size: 12px;
+  line-height: 2;
+}
+
+.music-button {
+  position: fixed;
+  right: 17px;
+  bottom: 17px;
+  z-index: 30;
+  background: #fff;
+  border: 1px solid #f0cfda;
+  border-radius: 30px;
+  padding: 12px 17px;
+  color: #b96d88;
+  box-shadow: 0 4px 15px #c58a9b33;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.divider {
+  text-align: center;
+  color: #d38ca6;
+  letter-spacing: 9px;
+  margin: 25px 0;
+}
+
+@media (max-width: 480px) {
+  .section { padding: 55px 0; }
+  .photo-frame img { height: 300px; }
+  .letter-paper { padding: 32px 19px; }
+  .reason-list { gap: 10px; }
+  .reason { padding: 17px 12px; }
+  .timer-grid { gap: 5px; }
+  .time-box { padding: 13px 3px; }
+  .time-box span { font-size: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="floating-hearts"></div>
+
+<div class="sticker one">🌷</div>
+<div class="sticker two">🧸</div>
+<div class="sticker three">🎀</div>
+<div class="sticker four">✨</div>
+
+<audio id="bgMusic" src="sempurnaa.mp3" loop preload="auto"></audio>
+
+<!-- OPENING PAGE -->
+
+<section class="opening" id="opening">
+  <div class="opening-card">
+    <span class="eyebrow">A LITTLE GIFT FOR YOU ♡</span>
+
+    <h1>Happy Birthday!</h1>
+
+    <p>
+      Untuk seseorang yang punya tempat spesial
+      di hati aku. Ada sesuatu yang aku siapin
+      khusus buat kamu. 💌
+    </p>
+
+    <div style="font-size:35px;margin-bottom:22px">
+      🎀 🧸 💗
+    </div>
+
+    <button class="main-button" onclick="openWebsite()">
+      Open Your Surprise ♡
+    </button>
+
+    <p style="font-size:11px;margin-top:20px;margin-bottom:0">
+      made with love, just for you ✧
+    </p>
+  </div>
+</section>
+
+<!-- MAIN WEBSITE -->
+
+<main id="main-content">
+
+  <!-- INTRO -->
+
+  <section class="section">
+    <p class="section-label">✧ today is all about you ✧</p>
+
+    <h2 class="section-title">
+      Happy Birthday,<br>
+      <span style="font-family:'Sacramento',cursive;color:#c87594">
+        My Favorite Person ♡
+      </span>
+    </h2>
+
+    <p class="section-desc">
+      Hari ini bukan sekadar hari ulang tahun biasa.
+      Hari ini adalah hari lahirnya seseorang yang
+      kehadirannya berarti banyak buat aku. 🎂
+    </p>
+
+    <div class="tags">
+      <span class="tag">♡ my person</span>
+      <span class="tag">made with love</span>
+      <span class="tag">forever memories ✧</span>
+    </div>
+
+    <!-- GANTI FOTO DI SINI -->
+    <div class="photo-area">
+      <span class="tape"></span>
+
+      <span class="photo-doodle left">♡</span>
+      <span class="photo-doodle right">✿</span>
+
+      <div class="photo-frame">
+        <img src="foto 2.jpeg" alt="Foto kenangan kita">
+
+        <div class="photo-caption">
+          my favorite memory ♡
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:12px;margin-top:30px">
+      one picture, a thousand feelings. 💗
+    </p>
+  </section>
+
+  <div class="divider">♡ ✧ ♡ ✧ ♡</div>
+
+  <!-- RELATIONSHIP TIMER -->
+
+  <section class="section">
+    <p class="section-label">our little timeline</p>
+
+    <h2 class="section-title">Time With You ⏳</h2>
+
+    <p class="section-desc">
+      Setiap detik punya cerita, setiap hari punya kenangan.
+      Dan aku bersyukur untuk waktu yang sudah kita lewati.
+    </p>
+
+    <div class="timer-card">
+      <p style="text-align:center;font-size:13px">
+        sejak tanggal 30 November 2025 ♡
+      </p>
+
+      <div class="timer-grid">
+        <div class="time-box">
+          <strong id="days">0</strong>
+          <span>Days</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="hours">00</strong>
+          <span>Hours</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="minutes">00</strong>
+          <span>Minutes</span>
+        </div>
+
+        <div class="time-box">
+          <strong id="seconds">00</strong>
+          <span>Seconds</span>
+        </div>
+      </div>
+
+      <p style="text-align:center;margin-top:23px;font-size:12px">
+        and still counting... ♡
+      </p>
+    </div>
+  </section>
+
+  <div class="divider">✿ ♡ ✿ ♡ ✿</div>
+
+  <!-- LOVE LETTER -->
+
+  <section class="section">
+    <p class="section-label">a letter from my heart</p>
+
+    <h2 class="section-title">Dear You, 💌</h2>
+
+    <div class="letter-paper">
+
+      <h3>Happy birthday, sayang ♡</h3>
+
+      <p>
+        Haiii, happy birthday yaaa! 🎂💗
+        Hari ini adalah hari spesial kamu, dan aku mau
+        kamu tahu kalau aku ikut bahagia karena kamu
+        sudah sampai di hari ini. Semoga hari ulang
+        tahunmu dipenuhi banyak hal baik, senyuman,
+        kebahagiaan, dan orang-orang yang tulus menyayangimu.
+      </p>
+
+      <p>
+        Aku mungkin nggak selalu pandai menyampaikan
+        perasaan lewat kata-kata. Kadang aku bingung
+        harus mulai dari mana, kadang juga ada banyak
+        hal yang cuma bisa aku simpan di hati.
+        Tapi lewat website kecil ini, aku mau mencoba
+        menyampaikan sedikit dari semua yang aku rasakan. ♡
+      </p>
+
+      <p>
+        Terima kasih sudah hadir di hidup aku.
+        Terima kasih untuk setiap obrolan, tawa,
+        cerita random, perhatian kecil, dan momen-momen
+        sederhana yang ternyata bisa jadi kenangan berharga.
+        Hal-hal kecil seperti itu punya tempat tersendiri
+        di hati aku.
+      </p>
+
+      <p>
+        Di umur kamu yang baru ini, aku berharap kamu
+        selalu diberikan kesehatan, kebahagiaan,
+        ketenangan hati, dan kemudahan dalam setiap
+        langkah yang kamu ambil. Semoga hal-hal yang
+        selama ini kamu usahakan perlahan menemukan
+        jalannya. Semoga kamu juga selalu punya alasan
+        untuk tersenyum meskipun hari-harimu nggak selalu mudah.
+      </p>
+
+      <p>
+        Aku harap kamu bisa terus bertumbuh menjadi
+        versi dirimu yang kamu banggakan. Jangan terlalu
+        keras sama diri sendiri, ya. Kamu nggak harus
+        selalu terlihat kuat setiap waktu. Istirahat
+        kalau lelah, cerita kalau ada sesuatu yang
+        mengganggu pikiranmu, dan ingat kalau kamu
+        juga pantas mendapatkan hal-hal baik. 🌷
+      </p>
+
+      <p>
+        Aku nggak bisa menjanjikan kalau semuanya akan
+        selalu berjalan sempurna. Kita juga masih belajar,
+        masih bertumbuh, dan masih punya banyak hal
+        untuk dipahami. Tapi aku berharap kita bisa
+        terus belajar menghargai satu sama lain,
+        saling mendengarkan, dan menjaga komunikasi
+        dengan baik.
+      </p>
+
+      <p>
+        Kalau suatu hari kamu merasa capek dengan
+        banyaknya hal yang harus kamu hadapi, semoga
+        kamu ingat bahwa ada banyak alasan untuk tetap
+        percaya pada dirimu sendiri. Aku berharap
+        kamu selalu dikelilingi orang-orang yang
+        mendukungmu dan membuatmu merasa dihargai.
+      </p>
+
+      <p>
+        Sekali lagi, happy birthday, orang spesialku.
+        Semoga umur baru ini membawa cerita-cerita
+        indah yang belum pernah kamu bayangkan.
+        Semoga lebih banyak tawa daripada sedih,
+        lebih banyak ketenangan daripada kekhawatiran,
+        dan lebih banyak kesempatan untuk melakukan
+        hal-hal yang kamu sukai. 🎀
+      </p>
+
+      <p>
+        Terima kasih sudah menjadi bagian dari cerita
+        aku. Semoga hari ini membuat kamu merasa
+        disayangi, dihargai, dan diingat dengan cara
+        yang istimewa.
+      </p>
+
+      <p>
+        Enjoy your special day, okay?
+        Jangan lupa bahagia, jangan lupa jaga diri,
+        dan jangan lupa kalau kamu punya banyak hal
+        baik yang masih menunggu di depan sana. 💗
+      </p>
+
+      <div class="signature">
+        with lots of love, me ♡
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">♡ ⋆｡°✩ ♡</div>
+
+  <!-- REASONS -->
+
+  <section class="section">
+    <p class="section-label">little things matter</p>
+
+    <h2 class="section-title">Things I Appreciate ♡</h2>
+
+    <p class="section-desc">
+      Kadang rasa sayang ada dalam hal-hal sederhana
+      yang mungkin nggak selalu kita sadari.
+    </p>
+
+    <div class="reason-list">
+
+      <div class="reason">
+        <div class="emoji">🧸</div>
+        <h4>Your Presence</h4>
+        <p>
+          Kehadiranmu bisa membuat hari biasa
+          terasa sedikit lebih istimewa.
+        </p>
+      </div>
+
+      <div class="reason">
+        <div class="emoji">🌷</div>
+        <h4>Your Efforts</h4>
+        <p>
+          Aku menghargai setiap usaha kecil
+          dan hal baik yang kamu lakukan.
+        </p>
+      </div>
+
+      <div class="reason">
+        <div class="emoji">💌</div>
+        <h4>Our Stories</h4>
+        <p>
+          Setiap cerita dan obrolan kita punya
+          kenangannya masing-masing.
+        </p>
+      </div>
+
+      <div class="reason">
+        <div class="emoji">✨</div>
+        <h4>Your Dreams</h4>
+        <p>
+          Aku berharap kamu bisa terus mengejar
+          hal-hal yang membuatmu bahagia.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider">🎀 ♡ 🎀 ♡ 🎀</div>
+
+  <!-- INTERACTIVE GIFT -->
+
+  <section class="section">
+    <p class="section-label">a tiny surprise for you</p>
+
+    <h2 class="section-title">Open Your Gift 🎁</h2>
+
+    <p class="section-desc">
+      Ada satu pesan kecil yang aku sembunyikan di sini.
+      Coba klik kadonya! 💗
+    </p>
+
+    <div class="gift-card">
+
+      <button class="gift" onclick="openGift()" aria-label="Buka kado">
+        🎁
+      </button>
+
+      <p style="font-size:13px;margin-top:10px">
+        tap the gift to open ♡
+      </p>
+
+      <div class="secret-message" id="secretMessage">
+        <div style="font-size:35px;margin-bottom:15px">
+          💗 🧸 💗
+        </div>
+
+        <h3 style="font-family:'Playfair Display',serif;margin-bottom:12px">
+          A little reminder for you
+        </h3>
+
+        <p>
+          Kamu adalah seseorang yang punya cerita,
+          mimpi, dan perjalananmu sendiri.
+          Jangan pernah meremehkan langkah kecil
+          yang sudah kamu ambil.
+        </p>
+
+        <p style="margin-top:12px">
+          Semoga kamu selalu punya alasan untuk
+          tersenyum dan keberanian untuk mencoba
+          hal-hal baru. Happy birthday! ♡
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider">♡ ✧ ♡ ✧ ♡</div>
+
+  <!-- FINAL MESSAGE -->
+
+  <section class="section">
+    <div class="final-card">
+
+      <div class="big-heart">💗</div>
+
+      <p class="section-label" style="margin-top:20px">
+        one last thing
+      </p>
+
+      <h2 class="section-title">
+        This Little Page Is Yours
+      </h2>
+
+      <p>
+        Website ini mungkin sederhana, tapi aku berharap
+        bisa menjadi salah satu kenangan kecil yang
+        membuatmu tersenyum saat melihatnya lagi.
+      </p>
+
+      <p>
+        Selamat ulang tahun, yaa.
+        Semoga hal-hal baik selalu menemukan jalannya
+        menuju kamu. Semoga kamu bahagia hari ini
+        dan di hari-hari berikutnya. 🎂🌷
+      </p>
+
+      <p style="font-family:'Sacramento',cursive;font-size:34px;color:#c87594">
+        happy birthday, my favorite person ♡
+      </p>
+
+      <button class="main-button" onclick="celebrate()">
+        Send You Some Love 💌
+      </button>
+
+    </div>
+  </section>
+
+  <footer>
+    made with ♡ just for you
+    <br>
+    a little scrapbook of love 🎀
+    <br>
+    © birthday memories
+  </footer>
+
+</main>
+
+<button class="music-button" id="musicButton"
+  onclick="toggleMusic()" style="display:none">
+  ♫ Play Music
+</button>
+
+<script>
+const music = document.getElementById("bgMusic");
+const musicButton = document.getElementById("musicButton");
+
+function openWebsite() {
+  document.getElementById("opening").style.display = "none";
+
+  const main = document.getElementById("main-content");
+  main.classList.add("visible");
+
+  musicButton.style.display = "block";
+
+  music.play().then(() => {
+    musicButton.textContent = "♫ Music On";
+  }).catch(() => {
+    musicButton.textContent = "♫ Play Music";
+  });
+
+  celebrate();
+
+  setTimeout(() => {
+    main.scrollIntoView({ behavior: "smooth" });
+  }, 100);
+}
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play().then(() => {
+      musicButton.textContent = "♫ Music On";
+    }).catch(() => {
+      musicButton.textContent = "♫ Play Music";
+    });
+  } else {
+    music.pause();
+    musicButton.textContent = "♫ Music Off";
+  }
+}
+
+/* RELATIONSHIP TIMER */
+
+const relationshipStart = new Date(2025, 10, 30, 0, 0, 0);
+
+function updateTimer() {
+  const now = new Date();
+  let diff = Math.max(0, now - relationshipStart);
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+updateTimer();
+setInterval(updateTimer, 1000);
+
+/* FLOATING HEARTS */
+
+const heartContainer = document.getElementById("floating-hearts");
+
+function createHeart() {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+
+  const symbols = ["♡", "♥", "✧", "✿", "⋆"];
+  heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (12 + Math.random() * 19) + "px";
+  heart.style.color = ["#e8a1b8", "#d9a5c2", "#f1c6a8"][Math.floor(Math.random() * 3)];
+  heart.style.animationDuration = (6 + Math.random() * 6) + "s";
+
+  heartContainer.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 12000);
+}
+
+setInterval(createHeart, 800);
+
+/* INTERACTIVE GIFT */
+
+function openGift() {
+  const message = document.getElementById("secretMessage");
+  message.classList.toggle("show");
+
+  if (message.classList.contains("show")) {
+    celebrate();
+  }
+}
+
+/* CONFETTI */
+
+function celebrate() {
+  const emojis = ["💗", "🎀", "✨", "🌸", "💕", "✿", "🎉"];
+
+  for (let i = 0; i < 45; i++) {
+    const piece = document.createElement("span");
+
+    piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    piece.style.position = "fixed";
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.top = "-40px";
+    piece.style.fontSize = (15 + Math.random() * 15) + "px";
+    piece.style.zIndex = "100";
+    piece.style.pointerEvents = "none";
+    piece.style.transition = "transform 3s linear, opacity 3s linear";
+
+    document.body.appendChild(piece);
+
+    const drift = (Math.random() - 0.5) * 350;
+    const spin = Math.random() * 900;
+
+    requestAnimationFrame(() => {
+      piece.style.transform =
+        `translate(${drift}px, ${window.innerHeight + 100}px) rotate(${spin}deg)`;
+      piece.style.opacity = "0";
+    });
+
+    setTimeout(() => piece.remove(), 3200);
+  }
+}
+</script>
+
+</body>
+</html>
